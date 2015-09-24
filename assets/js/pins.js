@@ -5,7 +5,7 @@
 
 var loadPins = (function() {
 
-	var pinData = '{"pinData": [{"pinID":1, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}, {"pinID":2, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}, {"pinID":3, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}]}';
+	var pinData = '{"pinData": [{"pinID":1, "pinImg":"http://www.zastavki.com/pictures/originals/2013/Games_Picture_of_StarCraft_042721_.jpg","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}, {"pinID":2, "pinImg":"","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}, {"pinID":3, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}, {"pinID":4, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit."}, {"pinID":5, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. mauris suscipit."}, {"pinID":6, "pinImg":"http://cssdeck.com/uploads/media/items/1/1swi3Qy.png","pinDetail":"https://jiro9611.com/check1.html","describe":"faucibus suscipit. nunc convallis quis aliquam mauris suscipit."}]}';
 	var pinObj = JSON.parse(pinData);
 
 	return pinObj;
@@ -45,3 +45,7 @@ var displayPins = (function(getPins) {
 	});
 
 });
+
+			$( document ).ready(function() {
+				displayPins(loadPins);
+			});
