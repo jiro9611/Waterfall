@@ -4,11 +4,11 @@
   "description": "Jiro Studio Web",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Schweitzer-Lin/jiro_studio.git"
+    "url": "https://github.com/jiro9611/Waterfall.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/Schweitzer-Lin/jiro_studio/issues"
+    "url": "https://github.com/jiro9611/Waterfall/issues"
   },
   "devDependencies": {
     "ansi-regex": "^1.1.1",
