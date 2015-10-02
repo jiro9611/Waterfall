@@ -1,3 +1,7 @@
+// -----------------------------------------------------------------------------
+// Dependencies
+// -----------------------------------------------------------------------------
+
 var gulp = require('gulp');
 var debug = require('gulp-debug');
 var uglify = require('gulp-uglify');
@@ -10,11 +14,21 @@ var rimraf = require('rimraf');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var sassdoc = require('sassdoc');
+
+// -----------------------------------------------------------------------------
+// Configuration
+// -----------------------------------------------------------------------------
 
 var js_dest_path = 'assets/lib/js';
 var css_dest_path = 'assets/lib/css';
 var img_for_fancybox = 'assets/lib/css';
 var font_path = 'assets/lib/fonts';
+
+var input_sass = 'assets/style/sass/main.{sass,scss}'
+var output_sass = 'assets/style/css';
 
 var jsFilter = gulpFilter('*.js');
 var cssFilter = gulpFilter(['*.css']);
@@ -27,11 +41,34 @@ var files = [
   '!./bower_components/**'
 ];
 
-//Compile sass/scss To CSS
+var autoprefixerOptions = {
+  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
+};
+
+// -----------------------------------------------------------------------------
+// Sass compilation
+// -----------------------------------------------------------------------------
 gulp.task('styles',function(){
-    gulp.src('battleslot/style.{sass,scss}')
-    .pipe(sass())
-    .pipe(gulp.dest('battleslot'));
+    gulp.src(input_sass)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(gulp.dest(output_sass));
+});
+
+// -----------------------------------------------------------------------------
+// Sass documentation generation
+// -----------------------------------------------------------------------------
+
+var sassdocOptions = {
+  dest: 'assets/style/sassdoc'
+};
+
+gulp.task('sassdoc', function () {
+    return gulp.src('assets/style/sass/*.scss')
+    .pipe(sassdoc(sassdocOptions))
+    .resume();
 });
 
 gulp.task('build', function(callback) {
@@ -43,7 +80,7 @@ gulp.task('install', function() {
         .pipe(install());
 });
 
-gulp.task('clean', function() { 
+gulp.task('clean', function() {
     rimraf("assets/lib", function(){});
     return rimraf("bower_components", function(){});
 
