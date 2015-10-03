@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAGA,IAAI,CAAC;EACJ,gBAAgB,EAAE,IAAK;EACvB,QAAQ,EAAE,QAAS,GAFd","file":"main.css","sourcesContent":["// $black:#000;\n// $darkgrey:#2B2B2B;\n\nbody {\n\tbackground-color: #fff;\n\tposition: relative;\n}"],"sourceRoot":"/source/"}

@@ -52,8 +52,8 @@ gulp.task('styles',function(){
     gulp.src(input_sass)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(sourcemaps.write('./maps'))
+    // .pipe(autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest(output_sass));
 });
 
